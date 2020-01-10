@@ -1,18 +1,23 @@
 defmodule ColumbusSept do
-  @moduledoc """
-  Documentation for ColumbusSept.
-  """
+  def getUserGuess do
+    String.to_integer(String.trim(IO.gets("Pick a number between one and ten. ")))
+  end
 
-  @doc """
-  Hello world.
+  def checkAnswer(playerNumber, computerNumber) do
+    if playerNumber == computerNumber do
+      IO.puts("Well guessed!")
+      "Well guessed!"
+    else
+      IO.puts("Guess again")
+      "Guess again"
+      checkAnswer(getUserGuess(), computerNumber)
+    end
+  end
 
-  ## Examples
+  def guessingGame() do
+    computerNumber = Enum.random(1..10)
+    playerNumber = getUserGuess()
 
-      iex> ColumbusSept.hello()
-      :world
-
-  """
-  def hello do
-    :world
+    checkAnswer(playerNumber, computerNumber)
   end
 end
