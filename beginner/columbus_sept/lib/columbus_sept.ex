@@ -16,8 +16,6 @@ defmodule ColumbusSept do
 
   def guessingGame() do
     computerNumber = Enum.random(1..10)
-    playerNumber = getUserGuess()
-
-    checkAnswer(playerNumber, computerNumber)
+    checkAnswer(getUserGuess(), computerNumber)
   end
 end
